@@ -70,11 +70,11 @@ INDEX_TEMPLATE = """
         <tr><th>#</th><th>Equipo</th><th>A&ntilde;o</th><th>Prob. Campe&oacute;n</th></tr>
       </thead>
       <tbody>
-      {% for i, item in enumerate(predictions, start=1) %}
+      {% for item in predictions %}
         <tr>
-          <td>{{ i }}</td>
+          <td>{{ loop.index }}</td>
           <td>
-            {% if i == 1 %}<span class="badge">Favorito</span> {% endif %}
+            {% if loop.first %}<span class="badge">Favorito</span> {% endif %}
             {{ item.team }}
           </td>
           <td>{{ item.year }}</td>
